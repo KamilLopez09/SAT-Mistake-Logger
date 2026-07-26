@@ -1,19 +1,25 @@
 # SAT Mistake Logger
 
-A tiny, Excel-first toolkit for logging Digital SAT misses by **mechanical and logical failure**, not vague “I didn’t know it” labels.
+A tiny toolkit for logging Digital SAT misses by **mechanical and logical failure**, not vague “I didn’t know it” labels.
 
 **Repo:** https://github.com/KamilLopez09/SAT-Mistake-Logger
 
-## Why Excel (not a custom app)
+## Quick start
 
-For this scale, a spreadsheet wins:
+**Option A — Excel (fastest analytics)**  
+Import `templates/sat-error-tracker.csv` and set Data Validation from `templates/error-root-cause-list.csv`. See [`docs/excel-setup.md`](docs/excel-setup.md).
 
-- Zero install / deploy
-- Screenshots paste or link into a cell
-- Pivot tables + filters for domain × root-cause heatmaps
-- Same file works offline during practice sessions
+**Option B — Local web logger (fastest capture)**  
+Open [`app/index.html`](app/index.html) in a browser. Log misses, then **Export CSV** into Excel. See [`docs/app-usage.md`](docs/app-usage.md).
 
-If you later outgrow it, the CSV schema is the source of truth for any app.
+## Why this shape
+
+| Tool | Best for |
+| --- | --- |
+| HTML app | Quick logging after a module; locked dropdowns; offline |
+| Excel / Sheets | Pivots, heatmaps, pasted screenshots, long-term review |
+
+CSV is the shared schema. The app exports the same headers as the template.
 
 ## Build plan (small scale)
 
@@ -23,23 +29,28 @@ If you later outgrow it, the CSV schema is the source of truth for any app.
 | 2 | Strict CSV template (`Date` → `Screenshot`) | Done |
 | 3 | Locked dropdown list for `Error Root Cause` | Done |
 | 4 | Excel/Google Sheets import + data-validation guide | Done |
+| 5 | Local HTML logger (`app/`) with localStorage | Done |
+| 6 | CSV export matching template schema | Done |
 
-### How you’ll use it (target workflow)
+### Workflow
 
-1. After each practice module, log every miss on one row.
-2. Pick **Error Root Cause** from the validation list only (no free-text causes).
-3. Write a concrete **Actionable Fix** (drill, rule, or re-do protocol).
-4. Attach a **Screenshot** (file path, OneDrive/Google Drive link, or pasted image in Excel).
+1. After each practice module, log every miss (HTML app or spreadsheet).
+2. Pick **Error Root Cause** from the validation list only.
+3. Write a concrete **Actionable Fix**.
+4. Attach a **Screenshot** path/URL (or paste the image in Excel).
 5. Weekly: Pivot by `Content Domain` × `Error Root Cause` and drill the top two cells.
 
-### Optional later upgrades (out of scope for v1)
+### Optional later upgrades
 
 - Google Form → Sheets auto-append
-- Simple local HTML form that downloads CSV
+- GitHub Pages host for `app/`
 - Notion database with the same columns
 
 ## Files
 
+- `app/` — local HTML/JS/CSS logger
 - `templates/sat-error-tracker.csv` — import-ready tracker
-- `docs/error-root-cause-options.md` — dropdown options (copy into Data Validation)
-- `docs/excel-setup.md` — paste/import steps for Excel and Google Sheets
+- `templates/error-root-cause-list.csv` — dropdown source list
+- `docs/error-root-cause-options.md` — cause definitions
+- `docs/excel-setup.md` — Excel/Sheets setup
+- `docs/app-usage.md` — browser app usage
