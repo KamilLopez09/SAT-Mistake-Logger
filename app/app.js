@@ -53,6 +53,8 @@ const lightboxCaption = document.getElementById("lightbox-caption");
 
 /** @type {{ name: string, dataUrl: string } | null} */
 let pendingScreenshot = null;
+/** Object URL used only for on-screen preview (revoked on replace/clear). */
+let previewObjectUrl = null;
 
 function loadEntries() {
   try {
@@ -126,63 +128,129 @@ function toCsv(entries) {
   return `${lines.join("\r\n")}\r\n`;
 }
 
-function loadImage(fileOrBlob) {
+function isImageFile(file) {
+  if (!file) return false;
+  if (file.type && file.type.startsWith("image/")) return true;
+  return /\.(png|jpe?g|gif|webp|bmp|heic|heif)$/i.test(file.name || "");
+}
+
+function readFileAsDataUrl(fileOrBlob) {
   return new Promise((resolve, reject) => {
-    const url = URL.createObjectURL(fileOrBlob);
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (typeof reader.result === "string") resolve(reader.result);
+      else reject(new Error("Could not read image"));
+    };
+    reader.onerror = () => reject(new Error("Could not read image"));
+    reader.readAsDataURL(fileOrBlob);
+  });
+}
+
+function loadImageFromUrl(url) {
+  return new Promise((resolve, reject) => {
     const img = new Image();
-    img.onload = () => {
-      URL.revokeObjectURL(url);
-      resolve(img);
-    };
-    img.onerror = () => {
-      URL.revokeObjectURL(url);
-      reject(new Error("Could not read image"));
-    };
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error("Could not decode image"));
     img.src = url;
   });
 }
 
-async function compressImage(fileOrBlob, fileName) {
-  const img = await loadImage(fileOrBlob);
-  const scale = Math.min(1, MAX_IMAGE_WIDTH / img.width);
-  const width = Math.max(1, Math.round(img.width * scale));
-  const height = Math.max(1, Math.round(img.height * scale));
-  const canvas = document.createElement("canvas");
-  canvas.width = width;
-  canvas.height = height;
-  const ctx = canvas.getContext("2d");
-  ctx.drawImage(img, 0, 0, width, height);
-  const dataUrl = canvas.toDataURL("image/jpeg", JPEG_QUALITY);
-  const baseName = (fileName || "screenshot.png").replace(/\.[^.]+$/, "") || "screenshot";
-  return { name: `${baseName}.jpg`, dataUrl };
+function revokePreviewUrl() {
+  if (previewObjectUrl) {
+    URL.revokeObjectURL(previewObjectUrl);
+    previewObjectUrl = null;
+  }
 }
 
-function setPendingScreenshot(shot) {
+async function compressImage(fileOrBlob, fileName) {
+  const sourceUrl = URL.createObjectURL(fileOrBlob);
+  try {
+    const img = await loadImageFromUrl(sourceUrl);
+    const naturalWidth = img.naturalWidth || img.width;
+    const naturalHeight = img.naturalHeight || img.height;
+
+    if (!naturalWidth || !naturalHeight) {
+      const raw = await readFileAsDataUrl(fileOrBlob);
+      const baseName = (fileName || "screenshot.png").replace(/\.[^.]+$/, "") || "screenshot";
+      return { name: fileName || `${baseName}.png`, dataUrl: raw };
+    }
+
+    const scale = Math.min(1, MAX_IMAGE_WIDTH / naturalWidth);
+    const width = Math.max(1, Math.round(naturalWidth * scale));
+    const height = Math.max(1, Math.round(naturalHeight * scale));
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("Canvas unavailable");
+    ctx.drawImage(img, 0, 0, width, height);
+    const dataUrl = canvas.toDataURL("image/jpeg", JPEG_QUALITY);
+    if (!dataUrl.startsWith("data:image")) {
+      throw new Error("Compression produced invalid image data");
+    }
+    const baseName = (fileName || "screenshot.png").replace(/\.[^.]+$/, "") || "screenshot";
+    return { name: `${baseName}.jpg`, dataUrl };
+  } finally {
+    URL.revokeObjectURL(sourceUrl);
+  }
+}
+
+function setPendingScreenshot(shot, previewUrl) {
   pendingScreenshot = shot;
-  if (!shot) {
+  revokePreviewUrl();
+
+  if (!shot || !shot.dataUrl || !shot.dataUrl.startsWith("data:image")) {
+    pendingScreenshot = null;
     previewImage.removeAttribute("src");
+    previewImage.hidden = true;
     previewName.textContent = "";
+    dropPreview.hidden = true;
     dropPreview.classList.add("hidden");
+    dropEmpty.hidden = false;
     dropEmpty.classList.remove("hidden");
     fileInput.value = "";
     return;
   }
-  previewImage.src = shot.dataUrl;
-  previewName.textContent = shot.name;
+
+  // Prefer a blob/object URL for display — avoids broken <img> when data URLs misbehave.
+  if (previewUrl) {
+    previewObjectUrl = previewUrl;
+    previewImage.src = previewUrl;
+  } else {
+    previewImage.src = shot.dataUrl;
+  }
+  previewImage.hidden = false;
+  previewName.textContent = shot.name || "screenshot.jpg";
+  dropEmpty.hidden = true;
   dropEmpty.classList.add("hidden");
+  dropPreview.hidden = false;
   dropPreview.classList.remove("hidden");
 }
 
 async function acceptImageFile(file) {
-  if (!file || !file.type.startsWith("image/")) {
-    window.alert("Please drop or choose an image file.");
+  if (!isImageFile(file)) {
+    window.alert("Please drop, paste, or choose an image file.");
     return;
   }
+
+  const displayUrl = URL.createObjectURL(file);
   try {
-    const shot = await compressImage(file, file.name);
-    setPendingScreenshot(shot);
-  } catch {
-    window.alert("Could not process that image. Try another file.");
+    // Show immediately so the drop zone never sits in a broken empty-src state.
+    previewImage.src = displayUrl;
+    previewImage.hidden = false;
+    previewName.textContent = file.name || "screenshot";
+    dropEmpty.hidden = true;
+    dropEmpty.classList.add("hidden");
+    dropPreview.hidden = false;
+    dropPreview.classList.remove("hidden");
+
+    const shot = await compressImage(file, file.name || `paste-${todayISO()}.png`);
+    setPendingScreenshot(shot, displayUrl);
+  } catch (error) {
+    URL.revokeObjectURL(displayUrl);
+    setPendingScreenshot(null);
+    window.alert("Could not process that image. Try a PNG or JPG screenshot.");
+    console.error(error);
   }
 }
 
@@ -195,7 +263,7 @@ function openLightbox(dataUrl, caption) {
 }
 
 function renderScreenshotCell(entry, index) {
-  if (entry.screenshotData) {
+  if (entry.screenshotData && String(entry.screenshotData).startsWith("data:image")) {
     const name = escapeHtml(entry.screenshotName || "Screenshot");
     return `
       <button type="button" class="thumb-btn" data-view-index="${index}" title="View full size">
@@ -263,23 +331,28 @@ fileInput.addEventListener("change", () => {
 ["dragenter", "dragover"].forEach((type) => {
   dropZone.addEventListener(type, (event) => {
     event.preventDefault();
+    event.stopPropagation();
     dropZone.classList.add("dragover");
   });
 });
 
-["dragleave", "drop"].forEach((type) => {
-  dropZone.addEventListener(type, (event) => {
-    event.preventDefault();
+dropZone.addEventListener("dragleave", (event) => {
+  event.preventDefault();
+  if (!dropZone.contains(event.relatedTarget)) {
     dropZone.classList.remove("dragover");
-  });
+  }
 });
 
 dropZone.addEventListener("drop", (event) => {
+  event.preventDefault();
+  event.stopPropagation();
+  dropZone.classList.remove("dragover");
   const file = event.dataTransfer && event.dataTransfer.files[0];
   if (file) acceptImageFile(file);
 });
 
 clearScreenshotBtn.addEventListener("click", (event) => {
+  event.preventDefault();
   event.stopPropagation();
   setPendingScreenshot(null);
 });
@@ -287,19 +360,21 @@ clearScreenshotBtn.addEventListener("click", (event) => {
 document.addEventListener("paste", async (event) => {
   const items = event.clipboardData && event.clipboardData.items;
   if (!items) return;
+
   for (const item of items) {
-    if (item.type.startsWith("image/")) {
-      event.preventDefault();
-      const blob = item.getAsFile();
-      if (!blob) return;
-      try {
-        const shot = await compressImage(blob, `paste-${todayISO()}.png`);
-        setPendingScreenshot(shot);
-      } catch {
-        window.alert("Could not paste that image.");
-      }
+    if (!item.type || !item.type.startsWith("image/")) continue;
+    event.preventDefault();
+    const blob = item.getAsFile();
+    if (!blob) {
+      window.alert("Clipboard image could not be read. Try saving the snip as a PNG and dropping it.");
       return;
     }
+    const file =
+      blob instanceof File
+        ? blob
+        : new File([blob], `paste-${todayISO()}.png`, { type: blob.type || "image/png" });
+    await acceptImageFile(file);
+    return;
   }
 });
 

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SAT Mistake Logger</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
   <main class="wrap">
@@ -57,8 +57,8 @@
           <div id="drop-empty" class="drop-empty">
             <strong>Drag & drop</strong> a screenshot here, click to browse, or paste (Ctrl+V)
           </div>
-          <div id="drop-preview" class="drop-preview hidden">
-            <img id="preview-image" alt="Screenshot preview" />
+          <div id="drop-preview" class="drop-preview hidden" hidden>
+            <img id="preview-image" alt="Screenshot preview" hidden />
             <div class="preview-meta">
               <span id="preview-name"></span>
               <button type="button" id="clear-screenshot" class="danger">Remove</button>
@@ -106,6 +106,6 @@
     <img id="lightbox-image" alt="Full-size screenshot" />
   </dialog>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=2"></script>
 </body>
 </html>

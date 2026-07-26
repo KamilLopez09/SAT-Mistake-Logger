@@ -218,6 +218,12 @@ td.cause { max-width: 180px; }
   border: 1px solid var(--line);
 }
 
+.drop-preview img[hidden],
+#drop-preview[hidden],
+#drop-empty[hidden] {
+  display: none !important;
+}
+
 .preview-meta {
   display: flex;
   justify-content: space-between;
