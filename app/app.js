@@ -38,7 +38,8 @@ const ERROR_ROOT_CAUSES = [
 const form = document.getElementById("entry-form");
 const rowsEl = document.getElementById("rows");
 const rowCountEl = document.getElementById("row-count");
-const causeSelect = document.getElementById("errorRootCause");
+const causeInput = document.getElementById("errorRootCause");
+const causeSuggestions = document.getElementById("error-root-cause-suggestions");
 const dateInput = document.getElementById("date");
 const dropZone = document.getElementById("drop-zone");
 const fileInput = document.getElementById("screenshot-file");
@@ -303,11 +304,11 @@ function render() {
 }
 
 function fillCauseOptions() {
+  causeSuggestions.innerHTML = "";
   for (const cause of ERROR_ROOT_CAUSES) {
     const option = document.createElement("option");
     option.value = cause;
-    option.textContent = cause;
-    causeSelect.appendChild(option);
+    causeSuggestions.appendChild(option);
   }
 }
 
@@ -387,7 +388,7 @@ form.addEventListener("submit", (event) => {
     testModule: document.getElementById("testModule").value.trim(),
     questionNumber: document.getElementById("questionNumber").value.trim(),
     contentDomain: document.getElementById("contentDomain").value,
-    errorRootCause: causeSelect.value,
+    errorRootCause: causeInput.value.trim(),
     actionableFix: document.getElementById("actionableFix").value.trim(),
     screenshotName: pendingScreenshot ? pendingScreenshot.name : "",
     screenshotData: pendingScreenshot ? pendingScreenshot.dataUrl : "",

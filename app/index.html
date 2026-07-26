@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SAT Mistake Logger</title>
-  <link rel="stylesheet" href="styles.css?v=2" />
+  <link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
   <main class="wrap">
@@ -42,9 +42,16 @@
       </label>
       <label>
         Error Root Cause
-        <select id="errorRootCause" name="errorRootCause" required>
-          <option value="" disabled selected>Select root cause</option>
-        </select>
+        <input
+          id="errorRootCause"
+          name="errorRootCause"
+          type="text"
+          required
+          list="error-root-cause-suggestions"
+          placeholder="Type the failure (suggestions appear as you type)"
+          autocomplete="off"
+        />
+        <datalist id="error-root-cause-suggestions"></datalist>
       </label>
       <label class="full">
         Actionable Fix
@@ -106,6 +113,6 @@
     <img id="lightbox-image" alt="Full-size screenshot" />
   </dialog>
 
-  <script src="app.js?v=2"></script>
+  <script src="app.js?v=3"></script>
 </body>
 </html>

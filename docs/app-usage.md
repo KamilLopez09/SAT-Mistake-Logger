@@ -11,7 +11,7 @@ No install, server, or account required. Entries save in that browser’s `local
 ## Log a miss
 
 1. Fill Date, Test/Module, Question Number.
-2. Choose Content Domain and Error Root Cause from the dropdowns (root cause is locked to the validation list).
+2. Choose Content Domain from the dropdown. Type Error Root Cause freely (suggested causes still appear as you type).
 3. Write an Actionable Fix you can run in the next study block.
 4. Optional screenshot: drag & drop an image, click the drop zone to browse, or paste with Ctrl+V (Win+Shift+S works well). A preview appears in the form; logged rows show a thumbnail — click it for full size.
 5. Click **Add miss**.
