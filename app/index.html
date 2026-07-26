@@ -50,10 +50,22 @@
         Actionable Fix
         <textarea id="actionableFix" name="actionableFix" required rows="3" placeholder="Concrete drill or re-do protocol for the next study block"></textarea>
       </label>
-      <label class="full">
-        Screenshot
-        <input id="screenshot" name="screenshot" type="text" placeholder="path, cloud URL, or note (e.g. screenshots/pt1-rw1-q12.png)" />
-      </label>
+      <div class="full screenshot-field">
+        <span class="field-label">Screenshot</span>
+        <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-label="Drop or choose a screenshot">
+          <input id="screenshot-file" type="file" accept="image/*" hidden />
+          <div id="drop-empty" class="drop-empty">
+            <strong>Drag & drop</strong> a screenshot here, click to browse, or paste (Ctrl+V)
+          </div>
+          <div id="drop-preview" class="drop-preview hidden">
+            <img id="preview-image" alt="Screenshot preview" />
+            <div class="preview-meta">
+              <span id="preview-name"></span>
+              <button type="button" id="clear-screenshot" class="danger">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="actions full">
         <button type="submit">Add miss</button>
         <button type="button" id="export-csv" class="secondary">Export CSV</button>
@@ -85,6 +97,15 @@
       </div>
     </section>
   </main>
+
+  <dialog id="lightbox" class="lightbox">
+    <form method="dialog" class="lightbox-bar">
+      <span id="lightbox-caption"></span>
+      <button type="submit" class="secondary">Close</button>
+    </form>
+    <img id="lightbox-image" alt="Full-size screenshot" />
+  </dialog>
+
   <script src="app.js"></script>
 </body>
 </html>

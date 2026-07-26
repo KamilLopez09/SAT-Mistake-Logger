@@ -13,8 +13,10 @@ No install, server, or account required. Entries save in that browser’s `local
 1. Fill Date, Test/Module, Question Number.
 2. Choose Content Domain and Error Root Cause from the dropdowns (root cause is locked to the validation list).
 3. Write an Actionable Fix you can run in the next study block.
-4. Optional: Screenshot path or cloud URL.
+4. Optional screenshot: drag & drop an image, click the drop zone to browse, or paste with Ctrl+V (Win+Shift+S works well). A preview appears in the form; logged rows show a thumbnail — click it for full size.
 5. Click **Add miss**.
+
+Images are compressed in-browser and saved with the entry in `localStorage`. CSV export writes the filename (images stay in the web app).
 
 ## Export to Excel
 
