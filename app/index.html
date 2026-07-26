@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAT Mistake Logger</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header class="header">
+      <h1>SAT Mistake Logger</h1>
+      <p>Log each miss by mechanical/logical failure. Export CSV into Excel anytime.</p>
+    </header>
+
+    <form id="entry-form" class="form" autocomplete="off">
+      <label>
+        Date
+        <input id="date" name="date" type="date" required />
+      </label>
+      <label>
+        Test/Module
+        <input id="testModule" name="testModule" type="text" required placeholder="Practice Test 1 - RW Module 1" />
+      </label>
+      <label>
+        Question Number
+        <input id="questionNumber" name="questionNumber" type="text" required placeholder="12" />
+      </label>
+      <label>
+        Content Domain
+        <select id="contentDomain" name="contentDomain" required>
+          <option value="" disabled selected>Select domain</option>
+          <option>Information and Ideas</option>
+          <option>Craft and Structure</option>
+          <option>Expression of Ideas</option>
+          <option>Standard English Conventions</option>
+          <option>Algebra</option>
+          <option>Advanced Math</option>
+          <option>Problem-Solving and Data Analysis</option>
+          <option>Geometry and Trigonometry</option>
+        </select>
+      </label>
+      <label>
+        Error Root Cause
+        <select id="errorRootCause" name="errorRootCause" required>
+          <option value="" disabled selected>Select root cause</option>
+        </select>
+      </label>
+      <label class="full">
+        Actionable Fix
+        <textarea id="actionableFix" name="actionableFix" required rows="3" placeholder="Concrete drill or re-do protocol for the next study block"></textarea>
+      </label>
+      <label class="full">
+        Screenshot
+        <input id="screenshot" name="screenshot" type="text" placeholder="path, cloud URL, or note (e.g. screenshots/pt1-rw1-q12.png)" />
+      </label>
+      <div class="actions full">
+        <button type="submit">Add miss</button>
+        <button type="button" id="export-csv" class="secondary">Export CSV</button>
+        <button type="button" id="clear-all" class="danger">Clear all</button>
+      </div>
+    </form>
+
+    <section class="table-section">
+      <div class="table-head">
+        <h2>Logged misses</h2>
+        <span id="row-count">0 rows</span>
+      </div>
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Test/Module</th>
+              <th>Q#</th>
+              <th>Content Domain</th>
+              <th>Error Root Cause</th>
+              <th>Actionable Fix</th>
+              <th>Screenshot</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
