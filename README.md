@@ -21,8 +21,8 @@ If you later outgrow it, the CSV schema is the source of truth for any app.
 | --- | --- | --- |
 | 1 | Public repo + this plan | Done |
 | 2 | Strict CSV template (`Date` → `Screenshot`) | Done |
-| 3 | Locked dropdown list for `Error Root Cause` | Next |
-| 4 | Excel/Google Sheets import + data-validation guide | Pending |
+| 3 | Locked dropdown list for `Error Root Cause` | Done |
+| 4 | Excel/Google Sheets import + data-validation guide | Next |
 
 ### How you’ll use it (target workflow)
 
