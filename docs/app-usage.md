@@ -2,8 +2,11 @@
 
 ## Open
 
-1. Open `app/index.html` in Chrome, Edge, or Firefox (double-click or drag into a browser tab).
-2. No install, server, or account required. Entries save in that browser’s `localStorage`.
+**Live:** https://kamillopez09.github.io/SAT-Mistake-Logger/
+
+**Offline:** open `app/index.html` in Chrome, Edge, or Firefox (double-click or drag into a browser tab).
+
+No install, server, or account required. Entries save in that browser’s `localStorage` (per origin — live site and local file are separate stores).
 
 ## Log a miss
 

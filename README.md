@@ -2,15 +2,19 @@
 
 A tiny toolkit for logging Digital SAT misses by **mechanical and logical failure**, not vague “I didn’t know it” labels.
 
-**Repo:** https://github.com/KamilLopez09/SAT-Mistake-Logger
+**Repo:** https://github.com/KamilLopez09/SAT-Mistake-Logger  
+**Live app:** https://kamillopez09.github.io/SAT-Mistake-Logger/
 
 ## Quick start
 
-**Option A — Excel (fastest analytics)**  
+**Option A — Live web logger (fastest capture)**  
+Open https://kamillopez09.github.io/SAT-Mistake-Logger/ — log misses, then **Export CSV** into Excel. See [`docs/app-usage.md`](docs/app-usage.md).
+
+**Option B — Excel (fastest analytics)**  
 Import `templates/sat-error-tracker.csv` and set Data Validation from `templates/error-root-cause-list.csv`. See [`docs/excel-setup.md`](docs/excel-setup.md).
 
-**Option B — Local web logger (fastest capture)**  
-Open [`app/index.html`](app/index.html) in a browser. Log misses, then **Export CSV** into Excel. See [`docs/app-usage.md`](docs/app-usage.md).
+**Option C — Offline local file**  
+Open [`app/index.html`](app/index.html) directly in a browser (same app as the live site).
 
 ## Why this shape
 
@@ -31,6 +35,7 @@ CSV is the shared schema. The app exports the same headers as the template.
 | 4 | Excel/Google Sheets import + data-validation guide | Done |
 | 5 | Local HTML logger (`app/`) with localStorage | Done |
 | 6 | CSV export matching template schema | Done |
+| 7 | GitHub Pages host for `app/` | Done |
 
 ### Workflow
 
@@ -43,7 +48,6 @@ CSV is the shared schema. The app exports the same headers as the template.
 ### Optional later upgrades
 
 - Google Form → Sheets auto-append
-- GitHub Pages host for `app/`
 - Notion database with the same columns
 
 ## Files
