@@ -59,4 +59,5 @@ CSV is the shared schema. The app exports the same headers as the template.
 - `docs/excel-setup.md` — Excel/Sheets setup
 - `docs/app-usage.md` — browser app usage
 - `docs/prep-strategy.md` — research-backed plan for the prep-book vs. question-bank disconnect
-- `docs/rw-question-classification.md` — Chapter 5/6 question classification and phrasing templates
+- `docs/rw-question-classification.md` — RW Chapter 5/6 question classification and phrasing templates
+- `docs/math-preppros-to-questionbank-map.md` — PrepPros Math chapters → question-bank hard questions (750–800 focus)
