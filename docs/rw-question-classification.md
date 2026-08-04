@@ -18,6 +18,9 @@ PDF page (= question number).
 - **Domain:** Information and Ideas
 - **Skill:** Central Ideas and Details (extracting explicit claims, main ideas, or direct facts from the passage)
 - **Reference phrasing (screenshot):** *"According to the text, what is true about X?"*, *"According to the text, why…?"*, *"Based on the text, how does X respond?"* — i.e. what the passage **states or indicates**.
+- **Reference phrasing (confirmed by the prep book's 10 Chapter 5 practice questions — see appendix):** every one is pure explicit-fact retrieval using the family
+  *"According to / Based on the [text/passage], [what is true about X / how does X / why does X / what effect did X have / in what way is X…]?"* —
+  and **none** are "main idea" questions and **none** use *infer / imply / suggest / would most likely agree.*
 
 | # (page) | Question ID | Difficulty | Question stem | Matches Ch. 5 phrasing? |
 | --- | --- | --- | --- | --- |
@@ -35,10 +38,15 @@ PDF page (= question number).
 | 38 | `5869a196` | Hard | Which question would be most useful to answer in determining the validity of the researchers' claim as it is presented in the text? | No — evaluate-the-claim wording, not a "what does the text state" stem |
 | 45 | `dd412b31` | Medium | Which choice best states the main idea of the text? | Yes (main idea) |
 
-**Strict phrasing match (mirror the screenshot's "According to / Based on the text — what / why / how / main idea" family):**
-8, 10, 11, 19, 22, 23, 34, 36, 45 (9 questions).
+### Tiered against the prep book's Chapter 5 phrasing template
 
-**Tagged *Central Ideas and Details* but phrased differently** (flagged above): 14, 15 (inference-style "would most likely agree"), 37 ("most strongly imply"), 38 (evaluate-the-claim).
+Matching the 13 tagged questions to the confirmed prep-book template shows the SAT tag is **broader** than Meltzer's Chapter 5:
+
+- **Tier A — true Chapter 5 match (explicit detail retrieval, prep-book phrasing):** 19 (*what happens*), 23 (*how King Henry presents himself*), 8, 11, 22 (*Based on the text, what / which…*), 10 (*Information in the text best supports which statement*). — **6 questions**
+- **Tier B — same tag but "main idea" phrasing** (a central-idea sub-type; in Meltzer this is a *different* chapter, not Ch 5 literal comprehension): 34, 36, 45. — **3 questions**
+- **Tier C — tagged *Central Ideas and Details* but phrased like another chapter:** 14, 15 (*would most likely agree* → Ch 6 Reasonable Inferences), 37 (*most strongly imply* → Ch 6), 38 (*which question would be most useful to test the claim's validity* → Ch 9 Supporting & Undermining). — **4 questions**
+
+For drilling **Chapter 5 (Literal Comprehension) specifically, use Tier A.**
 
 ---
 
@@ -78,7 +86,7 @@ that follows *only* from the given premises — so all 16 match the Chapter 6 qu
 
 | Chapter | Skill | Tagged in PDF | Stem matches screenshot family |
 | --- | --- | --- | --- |
-| 5 — Literal Comprehension | Central Ideas and Details | 13 | 9 clean matches (8, 10, 11, 19, 22, 23, 34, 36, 45); 4 flagged (14, 15, 37, 38) |
+| 5 — Literal Comprehension | Central Ideas and Details | 13 | Tier A = 6 true matches (8, 10, 11, 19, 22, 23); Tier B = 3 main-idea (34, 36, 45); Tier C = 4 other-chapter phrasing (14, 15, 37, 38) |
 | 6 — Reasonable Inferences | Inferences | 16 | 16 (all use "Which choice most logically completes the text?") |
 
 **Note on cross-over cases:** Questions 14 and 15 are tagged *Central Ideas and Details* yet use
@@ -87,3 +95,24 @@ as an inference phrasing. Question 37 uses *"most strongly imply."* Question 38 
 would test the *validity* of a claim (an evaluate-the-reasoning stem). They are kept under Chapter 5
 because that is their official skill tag, but flagged so they can be re-sorted if you are grouping
 purely by stem wording.
+
+---
+
+## Appendix — Prep-book Chapter 5 reference questions
+
+The ten Chapter 5 ("Literal Comprehension") practice questions supplied from the prep book, used to
+establish the phrasing template above. These are *not* from the SAT question bank; they are the
+teaching examples the question-bank items are matched against.
+
+| # | Passage topic | Question stem | Keyed answer |
+| --- | --- | --- | --- |
+| 1 | Eleanor Roosevelt's "My Day" column | Based on the passage, what is true about "My Day"? | B |
+| 2 | Cherokee weirs vs. dams | According to the text, how did weirs function differently from dams? | C |
+| 3 | Stanford "daily diary" cross-culture study | According to the text, what effect did the intervention have on participants? | A |
+| 4 | Georgia Douglas Johnson, "Youth" (1922 poem) | According to the text, in what way is youth unlike the autumn of life? | B |
+| 5 | Formation of undersea volcanoes | Based on the passage, why do undersea volcanoes develop? | A |
+| 6 | Edith Wharton, *The Custom of the Country* | According to the text, what is true about Mrs. Spragg? | D |
+| 7 | Oscar Wilde, *The Importance of Being Earnest* | Based on the text, what is true about Algernon? | B |
+| 8 | Early-1900s load-bearing walls | According to the passage, how did outer walls constructed in the early 1900s differ from earlier outer walls? | A |
+| 9 | Ancient coin hoards | Based on the passage, what is true about hoards? | B |
+| 10 | Amorphous ice | Based on the passage, what is true about amorphous ice? | C |
