@@ -55,11 +55,19 @@ For drilling **Chapter 5 (Literal Comprehension) specifically, use Tier A.**
 - **Domain:** Information and Ideas
 - **Skill:** Inferences (selecting the choice that most logically completes the text based only on the provided premises)
 - **Reference phrasing (screenshot):** *"It can be most reasonably inferred…"*, *"The author suggests that…"*, *"…would most likely agree with which statement…"*, *"An unstated assumption in the passage is that…"* — i.e. what the passage **suggests or implies**.
+- **Reference phrasing (confirmed by the prep book's 10 Chapter 6 practice questions — see appendix):** four forms —
+  *"It can be reasonably inferred from the text that…"*, *"Based on the text, [researcher] would most likely agree with which statement…"*, *"Based on the text, it is reasonable to infer that…"*, and *"An unstated assumption…is that…"*. **None** of the 10 uses *"Which choice most logically completes the text?"*
+
+> **Important — the tag does not map cleanly to Chapter 6.** Every question the SAT bank tags *Inferences*
+> uses the completion stem **"Which choice most logically completes the text?"** (passage ends in `______`).
+> But the prep book's dominant *"would most likely agree"* form is tagged **`Central Ideas and Details`** in
+> the bank (p14, p15), as are *"most likely believe"* (p22) and *"most strongly imply"* (p37). So the true
+> Chapter 6 practice set spans **two tags** — see the "Full Chapter 6 practice set" note below.
 
 Every question tagged *Inferences* in this PDF uses the digital-SAT completion stem
 **"Which choice most logically completes the text?"** (the passage ends in a blank `______`).
-This is the canonical form of the skill defined above — the reader must infer the conclusion
-that follows *only* from the given premises — so all 16 match the Chapter 6 question family.
+This is one canonical form of the skill — the reader must infer the conclusion
+that follows *only* from the given premises — so all 16 belong to the Chapter 6 family.
 
 | # (page) | Question ID | Difficulty | Question stem |
 | --- | --- | --- | --- |
@@ -80,6 +88,21 @@ that follows *only* from the given premises — so all 16 match the Chapter 6 qu
 | 44 | `45f66433` | Hard | Which choice most logically completes the text? |
 | 47 | `27ea642e` | Hard | Which choice most logically completes the text? |
 
+### Full Chapter 6 practice set (matches the prep-book phrasing, across both tags)
+
+For drilling Chapter 6, the completion-inference questions above are only half the story. Add the
+questions phrased with the prep book's *"would most likely agree / most likely believe / most strongly
+imply"* forms, which the bank happens to tag `Central Ideas and Details`:
+
+| # (page) | Question ID | Difficulty | Question stem | Bank tag |
+| --- | --- | --- | --- | --- |
+| 14 | `411739db` | Medium | Based on the text, which statement about Waugh's works would Perry most likely agree with? | Central Ideas and Details |
+| 15 | `c5cba39c` | Hard | Based on the text, Walker et al. would most likely agree with which statement…? | Central Ideas and Details |
+| 22 | `e65dfc41` | Medium | Based on the text, what do Stern and Gerya most likely believe…? | Central Ideas and Details |
+| 37 | `4a5bda7a` | Hard | What does the text most strongly imply about how participants responded…? | Central Ideas and Details |
+
+**Chapter 6 total = 16 completion-inference (tagged *Inferences*) + 4 agreement/belief/imply (tagged *Central Ideas and Details*) = 20 questions.**
+
 ---
 
 ## Summary
@@ -87,14 +110,13 @@ that follows *only* from the given premises — so all 16 match the Chapter 6 qu
 | Chapter | Skill | Tagged in PDF | Stem matches screenshot family |
 | --- | --- | --- | --- |
 | 5 — Literal Comprehension | Central Ideas and Details | 13 | Tier A = 6 true matches (8, 10, 11, 19, 22, 23); Tier B = 3 main-idea (34, 36, 45); Tier C = 4 other-chapter phrasing (14, 15, 37, 38) |
-| 6 — Reasonable Inferences | Inferences | 16 | 16 (all use "Which choice most logically completes the text?") |
+| 6 — Reasonable Inferences | Inferences (+ 4 tagged Central Ideas and Details) | 16 + 4 | 16 completion-inference + p14, p15, p22, p37 (agreement/belief/imply) = **20 practice questions** |
 
-**Note on cross-over cases:** Questions 14 and 15 are tagged *Central Ideas and Details* yet use
-the *"…would most likely agree with which statement…"* wording that the Chapter 6 screenshot lists
-as an inference phrasing. Question 37 uses *"most strongly imply."* Question 38 asks which question
-would test the *validity* of a claim (an evaluate-the-reasoning stem). They are kept under Chapter 5
-because that is their official skill tag, but flagged so they can be re-sorted if you are grouping
-purely by stem wording.
+**Note on cross-over cases:** Questions 14, 15, 22, and 37 are tagged *Central Ideas and Details* yet use
+the Chapter 6 inference phrasings from the prep book (*"would most likely agree" / "most likely believe" /
+"most strongly imply"*), so they are counted toward the **Chapter 6** practice set above. Question 38 asks
+which question would test the *validity* of a claim (an evaluate-the-reasoning stem, closer to Ch 9
+Supporting & Undermining) and is not a fit for either Chapter 5 or Chapter 6.
 
 ---
 
@@ -116,3 +138,26 @@ teaching examples the question-bank items are matched against.
 | 8 | Early-1900s load-bearing walls | According to the passage, how did outer walls constructed in the early 1900s differ from earlier outer walls? | A |
 | 9 | Ancient coin hoards | Based on the passage, what is true about hoards? | B |
 | 10 | Amorphous ice | Based on the passage, what is true about amorphous ice? | C |
+
+## Appendix — Prep-book Chapter 6 reference questions
+
+The ten Chapter 6 ("Reasonable Inferences") practice questions supplied from the prep book, used to
+establish the Chapter 6 phrasing template. Again, these are teaching examples, not question-bank items.
+
+| # | Passage topic | Question stem | Keyed answer |
+| --- | --- | --- | --- |
+| 1 | Spinosaurus / bone density | It can be reasonably inferred from the text that the paleontologists would most likely agree with which statement about Spinosaurus, Baryonyx, and Suchomimus? | C |
+| 2 | Jane Austen, *Northanger Abbey* (Catherine) | An unstated assumption in the narrator's description of Catherine is that a heroine should be… | B |
+| 3 | Conservationists & indigenous peoples | It can be reasonably inferred from the text that conservation groups… | A |
+| 4 | Soil denitrification / pH | It can be reasonably inferred from the text that Gowda and colleagues would most likely agree with which statement about pH levels? | B |
+| 5 | Prehistoric coin economy | Based on the text, Ialongo and Lago would most likely agree with which statement? | B / D |
+| 6 | Barbara McClintock / gene expression | Based on the text, it is reasonable to infer that the expression of a given gene… | D |
+| 7 | Brain's "chaptering" of events | Based on the text, De Soares and Baldassano would most likely agree with which statement about the brain's perception of chapters? | B |
+| 8 | Mantle transition zone | It can be reasonably inferred from the text that the mantle transition zone… | C |
+| 9 | San rock art / dicynodonts | Based on the text, Julien Benoit would most likely agree with which statement about the San people? | A |
+| 10 | Jefferson's weather journals | Based on the text, the researchers digitizing Jefferson's notes would most likely agree with which statement? | B |
+
+**Phrasing takeaway:** the prep book teaches Chapter 6 with the classic College Board inference stems
+(*reasonably inferred / would most likely agree / reasonable to infer / unstated assumption*), whereas the
+digital question bank expresses the same skill largely through the *"Which choice most logically completes
+the text?"* completion format. Same reasoning, different surface wording.
