@@ -55,6 +55,12 @@ CSV is the shared schema. The app exports the same headers as the template.
 - `app/` — local HTML/JS/CSS logger
 - `templates/sat-error-tracker.csv` — import-ready tracker
 - `templates/error-root-cause-list.csv` — dropdown source list
+- `templates/question-search-plan.csv` — per-chapter (both prep books) Question Bank search plan
+- `templates/question-bank-checklist.csv` — per-question review checklist (RW reading + Math)
 - `docs/error-root-cause-options.md` — cause definitions
 - `docs/excel-setup.md` — Excel/Sheets setup
 - `docs/app-usage.md` — browser app usage
+- `docs/prep-strategy.md` — research-backed plan for the prep-book vs. question-bank disconnect
+- `docs/rw-question-classification.md` — RW Chapter 5/6 question classification and phrasing templates
+- `docs/math-preppros-to-questionbank-map.md` — PrepPros Math chapters → question-bank hard questions (750–800 focus)
+- `docs/question-search-plan-usage.md` — how to use the per-chapter search-plan and checklist CSVs
